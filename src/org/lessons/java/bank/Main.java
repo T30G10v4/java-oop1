@@ -1,5 +1,6 @@
 package org.lessons.java.bank;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("0.00");
         String name = "";
         double amount = 0.00;
         int choose;
@@ -37,19 +39,17 @@ public class Main {
                     System.out.println("Quanto vuoi depositare?");
                     account.deposit(Double.parseDouble(scan.nextLine()));
                     System.out.println("Deposito in corso...");
-                    System.out.println("Il tuo nuovo saldo è "+account.getAmount()+".");
+                    System.out.println("Il tuo nuovo saldo è "+df.format(account.getAmount())+".");
 
                     break;
                 case 2:
                     System.out.println("Quanto vuoi ritirare?");
                     if(account.withdraw(Double.parseDouble(scan.nextLine()))) {
                         System.out.println("Ritiro in corso...");
-                        System.out.println("Il tuo nuovo saldo è " + account.getAmount() + ".");
+                        System.out.println("Il tuo nuovo saldo è " + df.format(account.getAmount()) + ".");
                     }
                     else {
-
                         System.out.println("Fondi insufficienti");
-
                     }
             }
 

@@ -6,6 +6,7 @@ public class Account {
     private int code;
     private String name;
     private double amount;
+
     public Account() {
 
         Random rnd = new Random();
